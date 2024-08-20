@@ -4,8 +4,8 @@ flow: flows/experiment
 connections:
 - name: aoai
   connection_type: AzureOpenAIConnection
-  api_base: https://demoopenaiexamples.openai.azure.com/
-  api_version: 2023-07-01-preview
+  api_base: https://kenwood-gpt35-turbo.openai.azure.com/
+  api_version: 2024-05-01-preview
   api_key: ${api_key}
   api_type: azure
 
