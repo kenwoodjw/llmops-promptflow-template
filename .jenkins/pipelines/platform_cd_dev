@@ -73,7 +73,7 @@ load_dotenv('.env')
 
                         // Execute the Python script
                         writeFile file: 'load_env.py', text: loadEnvScript
-                        sh 'python3 load_env.py'
+                        sh 'python3.9 load_env.py'
                     }
                 }
             }
