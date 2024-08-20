@@ -86,7 +86,7 @@ load_dotenv('.env')
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                     sh """
-                    python -m llmops.common.deployment.register_model \
+                    python3.9 -m llmops.common.deployment.register_model \
                     --subscription_id $AZURE_SUBSCRIPTION_ID \
                     --base_path $use_case_base_path \
                     --output_file "model_version.txt" \

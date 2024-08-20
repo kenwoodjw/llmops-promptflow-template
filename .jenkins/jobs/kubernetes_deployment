@@ -53,7 +53,7 @@ pipeline {
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                         sh """
-                        python -m llmops.common.deployment.kubernetes_endpoint \
+                        python3.9 -m llmops.common.deployment.kubernetes_endpoint \
                             --subscription_id $AZURE_SUBSCRIPTION_ID \
                             --build_id $run_id \
                             --output_file "endpoint_principal.txt" \
@@ -97,7 +97,7 @@ pipeline {
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                         sh """
-                        python -m llmops.common.deployment.kubernetes_deployment \
+                        python3.9 -m llmops.common.deployment.kubernetes_deployment \
                             --subscription_id $AZURE_SUBSCRIPTION_ID \
                             --model_version $model_version \
                             --build_id $run_id \
@@ -115,7 +115,7 @@ pipeline {
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                         sh """
-                        python -m llmops.common.deployment.test_model_on_kubernetes \
+                        python3.9 -m llmops.common.deployment.test_model_on_kubernetes \
                             --subscription_id $AZURE_SUBSCRIPTION_ID \
                             --env_name $env_name \
                             --base_path $use_case_base_path
