@@ -155,7 +155,7 @@ load_dotenv('.env')
                     --build_id $BUILD_NUMBER \\
                     --base_path $use_case_base_path \\
                     --env_name $env_name \\
-                    --run_id $run_id
+                    --run_id "$run_id"
                     '''
                 }
             }
