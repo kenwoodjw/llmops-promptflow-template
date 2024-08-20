@@ -90,7 +90,7 @@ load_dotenv('.env')
                     --subscription_id $AZURE_SUBSCRIPTION_ID \
                     --base_path $use_case_base_path \
                     --output_file "model_version.txt" \
-                    --build_id $run_id \
+                    --build_id "$run_id" \
                     --env_name $env_name \
                     """
                     }
