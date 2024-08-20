@@ -87,7 +87,7 @@ load_dotenv('.env')
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                     sh """
-                    python3.9 -m llmops.common.register_data_asset \\
+                    python -m llmops.common.register_data_asset \\
                     --subscription_id $AZURE_SUBSCRIPTION_ID \\
                     --base_path $use_case_base_path \\
                     --env_name $env_name
@@ -104,7 +104,7 @@ load_dotenv('.env')
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
                     withPythonEnv('/opt/homebrew/bin/python3.9') {
                     sh '''
-                    python3.9 -m llmops.common.prompt_pipeline \\
+                    python -m llmops.common.prompt_pipeline \\
                     --subscription_id $AZURE_SUBSCRIPTION_ID \\
                     --base_path $use_case_base_path \\
                     --build_id $BUILD_NUMBER \\
