@@ -84,7 +84,7 @@ load_dotenv('.env')
             steps {
                 installRequirements('execute_job_requirements')
                 withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
-                    withPythonEnv('/usr/bin/python3.9') {
+                    withPythonEnv('/opt/homebrew/bin/python3.9') {
                     sh """
                     python -m llmops.common.deployment.register_model \
                     --subscription_id $AZURE_SUBSCRIPTION_ID \
