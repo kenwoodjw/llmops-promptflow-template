@@ -7,9 +7,6 @@ pipeline {
         string(name: 'env_vars', description: 'The API key for authentication')
     }
 
-    environment {
-        registry_details = credentials('DOCKER_IMAGE_REGISTRY')
-    }
 
     stages {
 
@@ -94,7 +91,6 @@ load_dotenv('.env')
     stage('Create Docker Image') {
             steps {
                 installRequirements('build_validation_requirements')
-                withCredentials([string(credentialsId: 'DOCKER_IMAGE_REGISTRY', variable: 'registry_details')]) {
                 withPythonEnv('/opt/homebrew/bin/python3.9') {
                     sh """
                         # Your Docker image creation command here
@@ -105,7 +101,6 @@ load_dotenv('.env')
                     """
                     }
                 }
-            }
         }
 
         // Deploy Docker image to Azure Webapp
