@@ -79,15 +79,13 @@ load_dotenv('.env')
         steps {
             installRequirements('execute_job_requirements')
             installRequirements('build_validation_requirements')
-            withCredentials([azureServicePrincipal('AZURE_CREDENTIALS')]) {
-                withPythonEnv('/opt/homebrew/bin/python3.9') {
+            withPythonEnv('/opt/homebrew/bin/python3.9') {
                 sh '''
                 python -m llmops.common.prompt_local_connections \\
                     --base_path ${use_case_base_path} \\
                     --env_name ${deploy_environment}
                 '''
             }
-        }
         }
     }
 
