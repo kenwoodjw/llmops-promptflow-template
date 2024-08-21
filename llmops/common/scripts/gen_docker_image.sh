@@ -111,14 +111,14 @@ if [[ -e "$config_path" ]]; then
     python -m llmops.common.deployment.test_local_flow \
             --base_path $use_case_base_path
 
-    registry_name=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_name')
-    registry_server=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_server')
-    registry_username=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_username')
-    registry_password=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_password')
+    #registry_name=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_name')
+    #registry_server=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_server')
+    #registry_username=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_username')
+    #registry_password=$(echo "${REGISTRY_DETAILS}" | jq -r '.[0].registry_password')
 
-    docker login "$registry_server" -u "$registry_username" --password-stdin <<< "$registry_password"
-    docker tag localpf "$registry_server"/"$use_case_base_path"_"$deploy_environment":"$build_id"
-    docker push "$registry_server"/"$use_case_base_path"_"$deploy_environment":"$build_id"
+    #docker login "$registry_server" -u "$registry_username" --password-stdin <<< "$registry_password"
+    #docker tag localpf "$registry_server"/"$use_case_base_path"_"$deploy_environment":"$build_id"
+    #docker push "$registry_server"/"$use_case_base_path"_"$deploy_environment":"$build_id"
 
 else
     echo $config_path "not found"
